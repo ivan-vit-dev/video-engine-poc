@@ -2,32 +2,68 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  min-width: 150px;
+  flex: 0 1 auto;
+  min-width: 0; // Allow flex shrinking
+  max-width: 180px;
+
+  @media (max-width: 768px) {
+    max-width: 120px;
+    gap: 6px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100px;
+    gap: 4px;
+  }
 }
 
 .muteButton {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 20px;
-  padding: 4px;
+  font-size: 18px;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  flex-shrink: 0; // Don't shrink the button
 
   &:hover {
-    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+    font-size: 16px;
   }
 }
 
 .slider {
   flex: 1;
+  min-width: 0; // Allow flex shrinking
   height: 4px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
   outline: none;
   -webkit-appearance: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -37,6 +73,12 @@
     border-radius: 50%;
     background: #fff;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &::-moz-range-thumb {
@@ -46,13 +88,37 @@
     background: #fff;
     cursor: pointer;
     border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
 .volumeValue {
   color: #fff;
-  font-size: 12px;
-  min-width: 35px;
+  font-size: 10px;
+  min-width: 30px;
   text-align: right;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  flex-shrink: 0; // Don't shrink the text
+
+  @media (max-width: 768px) {
+    font-size: 9px;
+    min-width: 26px;
+  }
+
+  @media (max-width: 480px) {
+    display: none; // Hide percentage on very small screens
+  }
 }
 
