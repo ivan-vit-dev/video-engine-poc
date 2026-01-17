@@ -188,13 +188,6 @@ export class VideoPlayerManager {
   }
 
   /**
-   * Set volume
-   */
-  setVolume(volume: number): void {
-    this.adapter?.setVolume(volume);
-  }
-
-  /**
    * Get current time
    */
   getCurrentTime(): number {

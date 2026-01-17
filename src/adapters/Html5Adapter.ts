@@ -42,7 +42,8 @@ export class Html5Adapter extends VideoPlayerAdapter {
     if (source.url) {
       this.videoElement.src = source.url;
       if (source.type) {
-        this.videoElement.type = source.type;
+        // HTMLVideoElement doesn't have a type property, use setAttribute instead
+        this.videoElement.setAttribute("type", source.type);
       }
     }
 

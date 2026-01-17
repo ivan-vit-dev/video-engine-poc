@@ -47,7 +47,7 @@ export class ChromecastManager {
    * Check if Chromecast is available
    */
   isAvailable(): boolean {
-    return this.chromecastLoaded && this.config.enabled;
+    return this.chromecastLoaded && (this.config.enabled ?? false);
   }
 
   /**
