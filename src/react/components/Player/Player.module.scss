@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px; /* Ensure minimum height */
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* Video.js player styling - target the wrapper div video.js creates */
+.container :global(.video-js) {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  display: block !important;
+  background-color: #000 !important;
+}
+
+/* Video.js tech element (actual video tag) */
+.container :global(.video-js video),
+.container :global(.vjs-tech) {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+

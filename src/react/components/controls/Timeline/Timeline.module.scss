@@ -1,0 +1,65 @@
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.sliderContainer {
+  flex: 1;
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+.time {
+  color: #fff;
+  font-size: 12px;
+  font-family: monospace;
+  min-width: 50px;
+  text-align: center;
+}
+

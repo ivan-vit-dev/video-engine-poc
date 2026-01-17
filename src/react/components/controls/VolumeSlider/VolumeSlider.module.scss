@@ -1,0 +1,58 @@
+.volumeSlider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px;
+}
+
+.muteButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.slider {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.volumeValue {
+  color: #fff;
+  font-size: 12px;
+  min-width: 35px;
+  text-align: right;
+}
+
